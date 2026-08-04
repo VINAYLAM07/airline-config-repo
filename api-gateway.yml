@@ -1,24 +1,25 @@
 spring:
   cloud:
     gateway:
-      mvc:
-        routes:
+      server:
+        webmvc:
+          routes:
 
-          - id: auth-service
-            uri: lb://AUTH-SERVICE
-            predicates:
-              - Path=/api/auth/**
+            - id: auth-service
+              uri: lb://AUTH-SERVICE
+              predicates:
+                - Path=/api/auth/**
 
-            filters:
-              - StripPrefix=1
+              filters:
+                - StripPrefix=1
 
-          - id: flight-service
-            uri: lb://FLIGHT-SERVICE
-            predicates:
-              - Path=/api/flights/**
+            - id: flight-service
+              uri: lb://FLIGHT-SERVICE
+              predicates:
+                - Path=/api/flights/**
 
-            filters:
-              - StripPrefix=1
+              filters:
+                - StripPrefix=1
 
 eureka:
   client:
@@ -30,3 +31,8 @@ management:
     web:
       exposure:
         include: health,info
+
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.web: DEBUG

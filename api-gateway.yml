@@ -1,16 +1,24 @@
-server:
-  port: 8080
-
 spring:
-
   cloud:
-
     gateway:
+      mvc:
+        routes:
 
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
+          - id: auth-service
+            uri: lb://AUTH-SERVICE
+            predicates:
+              - Path=/api/auth/**
+
+            filters:
+              - StripPrefix=1
+
+          - id: flight-service
+            uri: lb://FLIGHT-SERVICE
+            predicates:
+              - Path=/api/flights/**
+
+            filters:
+              - StripPrefix=1
 
 eureka:
   client:

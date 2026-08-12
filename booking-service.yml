@@ -30,3 +30,8 @@ resilience4j:
         minimum-number-of-calls: 3
         failure-rate-threshold: 50
         wait-duration-in-open-state: 10s
+
+timelimiter:
+  instances:
+    flightService:
+      timeout-duration: 5s

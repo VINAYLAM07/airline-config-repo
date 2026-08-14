@@ -3,6 +3,15 @@ server:
 
 spring:
 
+  cache:
+    redis:
+      time-to-live: 10m
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
   datasource:
     url: jdbc:postgresql://localhost:5432/flightdb
     username: postgres

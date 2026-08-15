@@ -54,3 +54,7 @@ timelimiter:
   instances:
     flightService:
       timeout-duration: 5s
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level [%X{correlationId}] %logger{36} - %msg%n"

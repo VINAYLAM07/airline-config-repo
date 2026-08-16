@@ -53,7 +53,7 @@ resilience4j:
 timelimiter:
   instances:
     flightService:
-      timeout-duration: 5s
+      timeout-duration: 10s
 
 logging:
   pattern:

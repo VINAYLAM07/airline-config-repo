@@ -36,7 +36,11 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
+        include: health,info,metrics,gateway
+
+  endpoint:
+    gateway:
+      access: read-only
 
 logging:
   level:
